@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add a new task to the list
     function addTask(taskText, save = true) {
         if (!taskText.trim()) {
-            alert('Please enter a task.');
+            alert('Please enter a valid task.');
             return;
         }
 
@@ -57,14 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add task button event listener
     addButton.addEventListener('click', function () {
-        const taskText = taskInput.value;
+        const taskText = taskInput.value.trim();  // Prevent adding empty or whitespace tasks
         addTask(taskText);
     });
 
     // Allow adding task with Enter key
     taskInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
-            const taskText = taskInput.value;
+            const taskText = taskInput.value.trim();  // Prevent adding empty or whitespace tasks
             addTask(taskText);
         }
     });
